@@ -31,5 +31,22 @@ function onsubmit(e){
         username.value="";
         emailId.value="";
 
+//create delete btn
+    let deletebtn=document.createElement("input");
+    deletebtn.type="button";
+    deletebtn.value="Delete";
+    console.log(deletebtn);
+//append in li
+    li.appendChild(deletebtn);
+//append li inside ul
+    ul.appendChild(li);
 
+    deletebtn.addEventListener("click",removeItem);
+    function removeItem(e){
+        e.preventDefault();
+        localStorage.removeItem(myObj);
+        ul.removeChild(li);
     }
+    
+}
+    
