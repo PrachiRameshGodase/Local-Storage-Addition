@@ -7,21 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <form onsubmit="saveToLocalStorage(event)">
+    <form   id="item">
         <label>Name</label> 
-        <input type="text" name="username" required>
+        <input id="item1" type="text" name="username" required>
         <label>EmailId</label>
-        <input type="email" name="emailId" required>
+        <input id="item2" type="email" name="emailId" required>
         <button>Submit</button>
     </form>
-    <script>
-        function saveToLocalStorage(event){
-            event.preventDefault();
-            const name=event.target.username.value;
-            const email=event.target.emailId.value;
-            localStorage.setItem("name",name);
-            localStorage.setItem("email",email)
-        }
+    <script src="main.js">
+        // function saveToLocalStorage(event){
+        //     event.preventDefault();
+        //     const name=event.target.username.value;
+        //     const email=event.target.emailId.value;
+        //     localStorage.setItem("name",name);
+        //     localStorage.setItem("email",email);
+        
+        // }
+
     </script>
 </body>
 </html>
