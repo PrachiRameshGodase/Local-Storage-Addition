@@ -23,6 +23,7 @@ function onsubmit(e){
         localStorage.setItem("userDet",x);
 
 //create new element store data
+        const usersList=document.getElementById("users");
         const li=document.createElement("li");
         li.appendChild(document.createTextNode(`${username.value} : ${emailId.value}`));
         usersList.appendChild(li);
@@ -35,18 +36,37 @@ function onsubmit(e){
     let deletebtn=document.createElement("input");
     deletebtn.type="button";
     deletebtn.value="Delete";
-    console.log(deletebtn);
+    
 //append in li
     li.appendChild(deletebtn); 
-//append li inside ul
-    ul.appendChild(li);
+//append li inside userList
+    usersList.appendChild(li);
 
-    deletebtn.addEventListener("click",removeItem);
-    function removeItem(e){
+     deletebtn.onclick=(e)=>{
         e.preventDefault();
-        localStorage.removeItem(myObj);
-        ul.removeChild(li);
+        localStorage.removeItem(username.value);
+        usersList.removeChild(li);
+        
+    }
+    //create edit btn
+    let editbtn=document.createElement("input");
+    editbtn.type="button";
+    editbtn.value="Edit";
+    console.log(editbtn);
+    //append in li
+    li.appendChild(editbtn); 
+    //append li inside userList
+    usersList.appendChild(li);
+
+    editbtn.onclick=(e)=>{
+        e.preventDefault();
+
+        //populating the userdetails
+        username.value=document.getElementById("item1");
+        emailId.value=document.getElementById("item2");
+        
+        localStorage.removeItem(username.value);
+        usersList.removeChild(li);
     }
     
 }
-    
